@@ -37,7 +37,19 @@ with col1:
 
     m.add_basemap(basemap)
     # Add GeoJSON layer to map
+    # Define the style for the GeoJSON
+    geojson_style = {
+        "fillColor": "#bbe299",  # Fill color
+        "color": "#415430",      # Outline color
+        "weight": 2,             # Outline weight
+        "fillOpacity": 0.5       # Fill opacity (50%)
+    }
+
+    
     geojson_url = "https://chinchillaz.github.io/streamlit-hw/town_field.geojson"
-    m.add_geojson(geojson_url)
+    m.add_geojson(
+        geojson_url,
+        style_function=lambda feature: geojson_style
+    )
     
     m.to_streamlit(height=700)
