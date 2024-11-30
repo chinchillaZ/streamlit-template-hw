@@ -62,7 +62,7 @@ with st.expander("See source code"):
         )
         #m.add_legend(title="ESA Land Cover", builtin_legend="ESA_WorldCover")
 
-      legend_html = """
+        legend_html = """
         <div style="position: fixed; 
                     bottom: 10px; right: 10px; width: 200px; height: 150px; 
                     border:2px solid grey; background-color:white; 
