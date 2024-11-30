@@ -16,6 +16,15 @@ st.sidebar.image(logo)
 
 st.title("颱風前乾淨影像 比較NDVI")
 
+# Add text under the title
+st.markdown("""
+左邊影像是 2024年9月1日<br>
+右邊影像是 2024年9月11日<br>
+將透過這兩張影像的
+常態化差值植生指標(NDVI)及前後差值<br>
+判斷2024年池上關山鹿野地區二期水稻種植範圍
+""", unsafe_allow_html=True)
+
 with st.expander("See source code"):
     with st.echo():
         m = leafmap.Map()
@@ -29,14 +38,14 @@ with st.expander("See source code"):
         #m.add_legend(title="ESA Land Cover", builtin_legend="ESA_WorldCover")
 
         # Add the custom legend to the left side of the map
-        legend_html = """
+     legend_html = """
         <div style="position: fixed; 
-                    top: 10px; left: 10px; width: 200px; height: 150px; 
+                    bottom: 10px; right: 10px; width: 200px; height: 150px; 
                     border:2px solid grey; background-color:white; 
                     z-index:9999; font-size:14px; padding: 10px;">
-        <b>NDVI Color Legend</b><br>
-        <img src="https://www.colorhexa.com/ff0000.png" width="30" height="30"> Low NDVI (Red)<br>
-        <img src="https://www.colorhexa.com/00ff00.png" width="30" height="30"> High NDVI (Green)<br>
+        <b>NDVI Legend</b><br>
+        <img src="https://www.colorhexa.com/000000.png" width="30" height="30"> Low NDVI (Black)<br>
+        <img src="https://www.colorhexa.com/bfbfbf.png" width="30" height="30"> High NDVI (Light Gray)<br>
         </div>
         """
         m.get_root().html.add_child(folium.Element(legend_html))
