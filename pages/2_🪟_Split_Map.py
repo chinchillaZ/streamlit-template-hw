@@ -27,13 +27,11 @@ st.markdown("""
 
 with st.expander("See source code"):
     with st.echo():
-        m = leafmap.Map()
+        m = leafmap.Map(center=[23.1, 121.2], zoom=10)
         m.split_map(
             #left_layer="ESA WorldCover 2020 S2 FCC", right_layer="ESA WorldCover 2020"
             left_layer="https://chinchillaz.github.io/streamlit-hw/ndvi_20240901_field.tif", 
             right_layer="https://chinchillaz.github.io/streamlit-hw/ndvi_20240911_field.tif",
-            left_colormap="RdYlGn",  # Apply the 'RdYlGn' colormap for the left layer
-            right_colormap="RdYlGn"  # Apply the 'RdYlGn' colormap for the right layer
         )
         
         # Add the custom legend to the left side of the map
@@ -44,7 +42,7 @@ with st.expander("See source code"):
                     z-index:9999; font-size:14px; padding: 10px;">
         <b>NDVI Legend</b><br>
         <img src="https://www.colorhexa.com/000000.png" width="30" height="30"> Low NDVI (Black)<br>
-        <img src="https://www.colorhexa.com/bfbfbf.png" width="30" height="30"> High NDVI (Light Gray)<br>
+        <img src="https://www.colorhexa.com/bfbfbf.png" width="30" height="30"> High NDVI (Gray)<br>
         </div>
         """
         m.get_root().html.add_child(folium.Element(legend_html))
