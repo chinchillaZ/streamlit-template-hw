@@ -62,18 +62,17 @@ with st.expander("See source code"):
         )
         #m.add_legend(title="ESA Land Cover", builtin_legend="ESA_WorldCover")
 
-        # # Add the custom legend to the left side of the map
-        #  legend_html = """
-        #     <div style="position: fixed; 
-        #                 bottom: 10px; right: 10px; width: 200px; height: 150px; 
-        #                 border:2px solid grey; background-color:white; 
-        #                 z-index:9999; font-size:14px; padding: 10px;">
-        #     <b>NDVI Legend</b><br>
-        #     <img src="https://www.colorhexa.com/000000.png" width="30" height="30"> Low NDVI (Black)<br>
-        #     <img src="https://www.colorhexa.com/bfbfbf.png" width="30" height="30"> High NDVI (Light Gray)<br>
-        #     </div>
-        #     """
-        # m.get_root().html.add_child(folium.Element(legend_html))
+      legend_html = """
+        <div style="position: fixed; 
+                    bottom: 10px; right: 10px; width: 200px; height: 150px; 
+                    border:2px solid grey; background-color:white; 
+                    z-index:9999; font-size:14px; padding: 10px;">
+        <b>NDVI Legend</b><br>
+        <img src="https://www.colorhexa.com/000000.png" width="30" height="30"> Low NDVI (Black)<br>
+        <img src="https://www.colorhexa.com/bfbfbf.png" width="30" height="30"> High NDVI (Gray)<br>
+        </div>
+        """
+        m.get_root().html.add_child(folium.Element(legend_html))
 
 
 m.to_streamlit(height=700)
