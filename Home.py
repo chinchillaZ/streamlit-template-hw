@@ -23,7 +23,7 @@ st.markdown(
     本研究以2024年台東地區接連受凱米、山陀兒與康瑞颱風侵襲所造成的水稻田倒伏現象為背景，選定池上、鹿野與關山為研究區域<br>
     結合Sentinel-1與Sentinel-2衛星影像分析。透過提取NDVI等植生指數及地表特徵，應用機器學習分群技術（如:階層式分群、VAE-LSTM）辨識倒伏區域特性。<br>
     研究結果顯示，分群方法能有效提供倒伏分布模式與災害影響範圍的空間資訊，為災後農損評估與防災策略提供重要參考。<br>
-    """
+    """, unsafe_allow_html=True
 )
 
 st.header("研究區域")
@@ -34,7 +34,7 @@ markdown = """
 有助於分析颱風災害對水稻田的影響。<br>
 """
 
-st.markdown(markdown)
+st.markdown(markdown, unsafe_allow_html=True)
 
 m = leafmap.Map(center=[23.1, 121.2], zoom=10,minimap_control=True)
 m.add_basemap("OpenTopoMap")
