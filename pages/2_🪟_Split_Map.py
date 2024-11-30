@@ -28,18 +28,18 @@ with st.expander("See source code"):
         )
         #m.add_legend(title="ESA Land Cover", builtin_legend="ESA_WorldCover")
 
-         # Add text markers for the dates
-        folium.Marker(
-            location=[23.1, 121.2],  # Approximate location for the marker
-            popup="Date: 20240901",  # Popup text
-            icon=folium.Icon(color="green")
-        ).add_to(m)
-
-        folium.Marker(
-            location=[23.1, 121.4],  # Slightly different location for the second marker
-            popup="Date: 20240911",  # Popup text
-            icon=folium.Icon(color="blue")
-        ).add_to(m)
+        # Add the custom legend to the left side of the map
+        legend_html = """
+        <div style="position: fixed; 
+                    top: 10px; left: 10px; width: 200px; height: 150px; 
+                    border:2px solid grey; background-color:white; 
+                    z-index:9999; font-size:14px; padding: 10px;">
+        <b>NDVI Color Legend</b><br>
+        <img src="https://www.colorhexa.com/ff0000.png" width="30" height="30"> Low NDVI (Red)<br>
+        <img src="https://www.colorhexa.com/00ff00.png" width="30" height="30"> High NDVI (Green)<br>
+        </div>
+        """
+        m.get_root().html.add_child(folium.Element(legend_html))
 
 
 m.to_streamlit(height=700)
